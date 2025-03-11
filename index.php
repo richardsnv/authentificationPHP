@@ -2,7 +2,7 @@
 
 require_once "authenticator/src/models/database.php";
 // $db = new database();
-var_dump($user);
+// var_dump($user);
 $page = isset($_GET['page']) ? $_GET['page'] : 'register';
 
 switch ($page) {

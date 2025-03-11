@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'authenticator/src/views/login.php';
+require_once "authenticator/src/models/database.php";
+require_once 'authenticator/src/models/login.php';
 $database = new database();
 $login = new login();
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
@@ -15,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         //verification du mot de passe 
         if (password_verify($password, $user['password'])) {
             $_SESSION['message'] = "Connexion reussie !";
-            $_SESSION['user_id'] = $user['id']; // recupere l'id de l'utilisateur 
-            header("Location: index.php?page=login");
+            $_SESSION['name'] = $user['name']; // recupere l'id de l'utilisateur 
+            header("Location: index.php?page=home");
             exit();
         } else {
             $_SESSION['message'] = "Utilisateur non trouvé.";
             $_SESSION['type'] = "error";
-            header("Location: index.php?page=home");
+            header("Location: index.php?page=login");
             exit();
         }
     }
