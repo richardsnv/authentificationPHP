@@ -12,6 +12,9 @@ switch ($page) {
     case 'login':
         include_once 'authenticator/src/controllers/loginController.php';
         break;
+    case 'loyout':
+        include_once 'authenticator/src/views/loyout.php';
+        break;
     default:
         include_once 'authenticator/src/views/home.php';
 }

@@ -17,7 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         //verification du mot de passe 
         if (password_verify($password, $user['password'])) {
             $_SESSION['message'] = "Connexion reussie !";
-            $_SESSION['name'] = $user['name']; // recupere l'id de l'utilisateur 
+            $_SESSION['name'] = $user['name']; // recupere nom  de l'utilisateur 
+            $_SESSION['lastname'] = $user['lastname']; // recupere prenom  de l'utilisateur 
             header("Location: index.php?page=home");
             exit();
         } else {

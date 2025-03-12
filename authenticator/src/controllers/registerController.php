@@ -25,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php?page=register");
         exit();
     }
-    
+
     //Insertion dans la base de donnee
     if ($register->create($name, $lastname, $phone, $email, $hasPassword)) {
-        $_SESSION['message'] = "Inscription reussir !";
-        $_SESSION['type'] = 'success';
         header("Location: index.php?page=register");
         exit();
     } else {
+        $_SESSION['message'] = "Inscription reussir !";
+        $_SESSION['type'] = 'success';
         return header("Location: index.php?page=login");
         exit();
     }

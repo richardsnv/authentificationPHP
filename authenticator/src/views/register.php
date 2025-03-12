@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -20,15 +18,10 @@
         <div class="form-container">
             <div class="image-holder"></div>
             <form method="POST">
-                <?php if (isset($_SESSION['message']) && !empty($_SESSION['message'])) : ?>
-                    <div class="alert alert-<?php echo $_SESSION['type']; ?>">
-                        <?php echo $_SESSION['message']; ?>
-                    </div>
-                    <?php
-                    unset($_SESSION['message']);
-                    unset($_SESSION['type']);
-                    ?>
-                <?php endif ?>
+                
+                <!-- Gestion des messages flash -->
+                <?= include_once "partials/Flash.php";?>
+
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
                 <div class="form-group"><input class="form-control" type="text" name="name" placeholder="name" required></div>
                 <div class="form-group"><input class="form-control" type="text" name="lastname" placeholder="lastname" required></div>

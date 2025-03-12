@@ -1,4 +1,3 @@
-
 <html lang="fr">
 
 <head>
@@ -13,15 +12,9 @@
     <div class="card p-4 shadow-lg" style="width: 350px;">
         <h3 class="text-center mb-4">Connexion</h3>
         <form method="POST">
-            <?php if (isset($_SESSION['message']) && !empty($_SESSION['message'])) : ?>
-                <div class="alert alert-<?php echo $_SESSION['type']; ?>">
-                    <?php echo $_SESSION['message']; ?>
-                </div>
-                <?php
-                unset($_SESSION['message']);
-                unset($_SESSION['type']);
-                ?>
-            <?php endif ?>
+
+            <!-- Gestion des message flash -->
+            <?= include_once "partials/Flash.php"; ?>        
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
