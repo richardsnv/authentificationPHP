@@ -1,7 +1,13 @@
 <?php
+
 class login extends database
 {
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $email
+ * @return PDOStatement|sinon elle retourne false
+ */
     //Recuperation de l'utilisateur par sont email
     public function getEmail($email)
     {

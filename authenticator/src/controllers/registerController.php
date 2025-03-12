@@ -7,6 +7,7 @@ $database = new database();
 $register = new register();
 
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = htmlspecialchars($_POST['name']);
     $lastname = htmlspecialchars($_POST['lastname']);

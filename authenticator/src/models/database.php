@@ -1,4 +1,5 @@
 <?php
+
 class database
 {
     private $host = "localhost";
@@ -12,12 +13,11 @@ class database
         try {
             $this->connexion = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbname, $this->username, $this->login);
             $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "connexion reussir";
-            // return $this->connexion;
         } catch (PDOException $e) {
-            echo 'erreur lors de la connexion ' . $e->getMessage();
+            throw new Exception('erreur lors de la connexion ' . $e->getMessage());
         }
     }
+
     // Methode pour la recuperation de la connexion
     public function getConnexion()
     {
